@@ -1,0 +1,37 @@
+/* One scroll-driven palette, shared by all sections. Slate keeps the dark end readable. */
+app-root {
+  --journey: 0%;
+  --journey-scale: 0;
+  --paper: color-mix(in srgb, #505463, #34343e var(--journey));
+  --paper-soft: color-mix(in srgb, #454b59, #3c3841 var(--journey));
+  --surface: color-mix(in srgb, #5b606e, #45414a var(--journey));
+  --ink: #fff5e6;
+  --muted: #e1dcd5;
+  --line: #8a8790;
+  --sand: color-mix(in srgb, #c9aa80, #665462 var(--journey));
+  --sand-light: var(--paper-soft);
+  --crimson: color-mix(in srgb, #b1e3ff, #ffb5b8 var(--journey));
+  --crimson-bright: color-mix(in srgb, #75ccff, #ff6375 var(--journey));
+  --blue: var(--crimson);
+  --blue-light: var(--paper-soft);
+  display: block;
+  min-height: 100vh;
+  color: var(--ink);
+  background: radial-gradient(ellipse at 8% 0%, #cba8781f, transparent 35%), var(--paper);
+  padding-bottom: 64px;
+}
+
+app-root::before {
+  content: '';
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 10;
+  width: 3px;
+  pointer-events: none;
+  background: var(--crimson-bright);
+  box-shadow: 0 0 18px var(--crimson-bright);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  app-root { --journey: 0% !important; --journey-scale: 0 !important; }
+}
